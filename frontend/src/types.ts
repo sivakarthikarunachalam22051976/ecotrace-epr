@@ -3,6 +3,23 @@ export type Role =
   | "corporate"
   | "auditor";
 
+/* =====================================================
+   SCRAP HUB
+===================================================== */
+
+export interface ScrapHub {
+  id: string;
+  name: string;
+  city: string;
+  state: string;
+  tier: string;
+  capacity_kg_per_day: number;
+}
+
+/* =====================================================
+   CORPORATE
+===================================================== */
+
 export interface CorporateBrand {
   id: string;
   company_name: string;
@@ -15,6 +32,10 @@ export interface CorporateBrand {
   compliance_status: string;
 }
 
+/* =====================================================
+   RAGPICKER
+===================================================== */
+
 export interface Ragpicker {
   id: string;
   name: string;
@@ -25,6 +46,10 @@ export interface Ragpicker {
   total_collected_kg: number;
   total_transactions: number;
 }
+
+/* =====================================================
+   PLASTIC BATCH
+===================================================== */
 
 export interface PlasticBatch {
   id: string;
@@ -43,6 +68,10 @@ export interface PlasticBatch {
   purchased_at?: string;
 }
 
+/* =====================================================
+   TRANSACTION
+===================================================== */
+
 export interface BatchTransaction {
   id: string;
   batch_id: string;
@@ -55,6 +84,10 @@ export interface BatchTransaction {
   created_at: string;
   audited_at?: string;
 }
+
+/* =====================================================
+   EPR CREDIT
+===================================================== */
 
 export interface EPRCredit {
   id: string;
@@ -69,17 +102,9 @@ export interface EPRCredit {
   created_at: string;
 }
 
-export interface CorporateBrand {
-  id: string;
-  company_name: string;
-  industry: string;
-  headquarters: string;
-  annual_plastic_target_tons: number;
-  credits_purchased_tons: number;
-  compliance_percentage: number;
-  total_spent: number;
-  compliance_status: string;
-}
+/* =====================================================
+   HUB METRICS
+===================================================== */
 
 export interface HubMetrics {
   total_batches: number;
@@ -91,6 +116,10 @@ export interface HubMetrics {
   available_epr_credits: number;
   average_integrity_score: number;
 }
+
+/* =====================================================
+   AUDITOR METRICS
+===================================================== */
 
 export interface AuditorMetrics {
   total_plastic_recovered_kg: number;
@@ -106,6 +135,10 @@ export interface AuditorMetrics {
   ledger_integrity_percentage: number;
 }
 
+/* =====================================================
+   AI BATCH AUDIT RESULT
+===================================================== */
+
 export interface BatchAuditResult {
   plastic_category: string;
   contamination_percentage: number;
@@ -115,6 +148,10 @@ export interface BatchAuditResult {
   reasoning: string;
   recommended_action: string;
 }
+
+/* =====================================================
+   ESG INSIGHT
+===================================================== */
 
 export interface ESGInsight {
   compliance_percentage: number;
@@ -126,6 +163,10 @@ export interface ESGInsight {
   action_plan: string[];
   estimated_completion_timeline: string;
 }
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
 
 export interface DashboardData {
   hub_metrics: HubMetrics;

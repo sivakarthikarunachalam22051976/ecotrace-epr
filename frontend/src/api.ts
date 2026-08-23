@@ -36,10 +36,6 @@ async function request<T>(
 export async function getHubs() {
   const data = await request<any>("/api/hubs");
 
-  // Backend may return either:
-  // [ ... ]
-  // or { hubs: [ ... ] }
-
   if (Array.isArray(data)) {
     return data;
   }
@@ -97,6 +93,30 @@ export async function getCorporates() {
 
 export async function getDashboard() {
   return request<any>("/api/dashboard");
+}
+
+/* =====================================================
+   RECENT TRANSACTIONS
+===================================================== */
+
+export async function getRecentTransactions() {
+  const data = await request<any>(
+    "/api/transactions"
+  );
+
+  if (Array.isArray(data)) {
+    return data;
+  }
+
+  if (Array.isArray(data?.transactions)) {
+    return data.transactions;
+  }
+
+  if (Array.isArray(data?.recent_transactions)) {
+    return data.recent_transactions;
+  }
+
+  return [];
 }
 
 /* =====================================================
@@ -193,6 +213,7 @@ export const api = {
   getRagpickers,
   getCorporates,
   getDashboard,
+  getRecentTransactions,
   createTransaction,
   auditBatch,
   purchaseCredit,
