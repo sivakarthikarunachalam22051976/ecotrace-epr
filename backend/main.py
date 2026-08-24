@@ -37,9 +37,9 @@ FRONTEND_URL = os.getenv(
 )
 
 allowed_origins = [
-    origin.strip()
-    for origin in FRONTEND_URL.split(",")
-    if origin.strip()
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://ecotrace-epr.vercel.app",
 ]
 
 if not allowed_origins:
